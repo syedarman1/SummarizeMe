@@ -3,9 +3,9 @@ const path = require('path');
 
 require('dotenv').config(); 
 
-console.log(process.env);  // Check if all environment variables are loaded correctly
-console.log("GOOGLE_APPLICATION_CREDENTIALS:", process.env.GOOGLE_APPLICATION_CREDENTIALS);  // Specifically check for this variable
-console.log("OPENAI_API_KEY:", process.env.OPENAI_API_KEY);  // Specifically check for this variable
+console.log(process.env); 
+console.log("GOOGLE_APPLICATION_CREDENTIALS:", process.env.GOOGLE_APPLICATION_CREDENTIALS);  
+console.log("OPENAI_API_KEY:", process.env.OPENAI_API_KEY); 
 
 const axios = require('axios');
 const express = require('express');
@@ -25,14 +25,13 @@ if (!fs.existsSync(credentialsPath)) {
 }
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY; 
-// Log the API key to verify it's set correctly
 console.log("OpenAI API Key:", OPENAI_API_KEY);
 
 app.get('/', (req, res) => {
     res.send('Welcome to SummarizeMe!');
 });
 
-// POST route to summarize text using GPT
+
 app.post('/summarize', async (req, res) => {
   const { text } = req.body;
 
@@ -95,13 +94,13 @@ app.post('/read-aloud', async (req, res) => {
   }
 });
 
-// Global error handler
+
 app.use((err, req, res, next) => {
     console.error('Unhandled error:', err);
     res.status(500).json({ error: 'Internal Server Error' });
 });
 
-// Start the server
+
 const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

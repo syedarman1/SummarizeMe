@@ -25,7 +25,7 @@ const App = () => {
     try {
       const response = await axios.post('http://localhost:5555/read-aloud', {
         text: summary,
-      }, { responseType: 'blob' }); // Ensures binary data is returned
+      }, { responseType: 'blob' }); 
 
       const audioURL = window.URL.createObjectURL(new Blob([response.data], { type: 'audio/mpeg' }));
       const audio = new Audio(audioURL);
