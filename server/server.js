@@ -1,11 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
 require('dotenv').config(); 
-
-console.log(process.env); 
-console.log("GOOGLE_APPLICATION_CREDENTIALS:", process.env.GOOGLE_APPLICATION_CREDENTIALS);  
-console.log("OPENAI_API_KEY:", process.env.OPENAI_API_KEY); 
 
 const axios = require('axios');
 const express = require('express');
@@ -17,22 +12,19 @@ app.use(cors());
 app.use(express.json());
 
 const credentialsPath = path.join(__dirname, 'config/tts.json'); 
-console.log("Google Cloud Credentials Path:", credentialsPath);
 
 if (!fs.existsSync(credentialsPath)) {
-    console.error(`The file at ${credentialsPath} does not exist.`);
+    console.error(`The file at ${credentialsPath} does not exist. Please check your setup.`);
     process.exit(1);
 }
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY; 
-console.log("OpenAI API Key:", OPENAI_API_KEY);
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 app.get('/', (req, res) => {
     res.send('Welcome to SummarizeMe!');
 });
 
-
-app.post('/summarize', async (req, res) => {
+app.post('/summarize', async (req, res, next) => {
   const { text } = req.body;
 
   if (!text) {
@@ -45,7 +37,7 @@ app.post('/summarize', async (req, res) => {
           {
               model: "gpt-3.5-turbo",  
               messages: [{ role: "user", content: `Summarize this: ${text}` }],
-              max_tokens: 100
+              max_tokens: 180
           },
           {
               headers: {
@@ -60,18 +52,25 @@ app.post('/summarize', async (req, res) => {
 
   } catch (error) {
       console.error('Error with OpenAI GPT API:', error.response ? error.response.data : error.message);
-      res.status(500).json({ error: 'Error generating summary' });
+      next(error);
   }
 });
 
-app.post('/read-aloud', async (req, res) => {
+app.post('/read-aloud', async (req, res, next) => {
   const { text } = req.body;
 
   if (!text) {
       return res.status(400).json({ error: 'Text is required for TTS' });
   }
 
-  const client = new textToSpeech.TextToSpeechClient();
+  let client;
+  try {
+      client = new textToSpeech.TextToSpeechClient();
+  } catch (error) {
+      console.error('Error initializing Google TTS client:', error);
+      return res.status(500).json({ error: 'Google TTS initialization failed' });
+  }
+
   const request = {
       input: { text: text },
       voice: { languageCode: 'en-US', ssmlGender: 'NEUTRAL' },
@@ -90,16 +89,14 @@ app.post('/read-aloud', async (req, res) => {
 
   } catch (error) {
       console.error('Error with Google TTS:', error.message);
-      res.status(500).json({ error: 'Error generating speech' });
+      next(error);
   }
 });
-
 
 app.use((err, req, res, next) => {
     console.error('Unhandled error:', err);
     res.status(500).json({ error: 'Internal Server Error' });
 });
-
 
 const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {
