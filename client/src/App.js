@@ -19,7 +19,8 @@ const App = () => {
   const handleSummarize = async () => {
     setLoadingSummary(true);
     try {
-      const response = await axios.post('http://localhost:5555/summarize', {
+      // Change the URL to point to your Google Cloud backend
+      const response = await axios.post('https://summarizeme-438906.uk.r.appspot.com/summarize', {
         text: inputText,
       });
       setSummary(response.data.summary);
@@ -39,7 +40,8 @@ const App = () => {
 
     setLoadingTTS(true);
     try {
-      const response = await axios.post('http://localhost:5555/read-aloud', {
+      // Change the URL to point to your Google Cloud backend
+      const response = await axios.post('https://summarizeme-438906.uk.r.appspot.com/read-aloud', {
         text: summary,
       }, { responseType: 'blob' });
 
