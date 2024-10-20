@@ -1,5 +1,5 @@
 {
-  "homepage": ".",
+  "homepage": "https://summarizeme-0ba4c6b85ad4.herokuapp.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
