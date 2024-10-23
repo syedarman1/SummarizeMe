@@ -97,8 +97,7 @@ npm run dev  # For React/Next.js development mode
 Use the **Dark Mode** switch to toggle between light and dark themes.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Privacy Policy
-You can view the privacy policy for this application [here](./PRIVACY_POLICY).
-
+You can view the privacy policy for this extension [here](https://www.freeprivacypolicy.com/live/5633e524-8d47-4586-a3af-8d740e1c1d33).
