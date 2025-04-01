@@ -1,7 +1,10 @@
 
 # SummarizeMe Web Application
 
-**SummarizeMe** is a fullstack web application that allows users to summarize any text or webpage content using AI-powered tools. It also supports text-to-speech functionality to read the summary aloud, with both light and dark modes available for an improved user experience In connections with (Chrome Extension) https://github.com/syedarman1/SummarizeMe_Chrome
+**SummarizeMe** is a fullstack web application that allows users to summarize any text or webpage content using AI-powered tools. It also supports text-to-speech functionality to read the summary aloud, with both light and dark modes available for an improved user experience. 
+
+# IN CHROMEWEBSTORE NOW
+[Chrome Web Store](https://chromewebstore.google.com/detail/summarizeme/hokffkdbohcjjheljojgpdhgfligicme)
 
 ## Features
 
