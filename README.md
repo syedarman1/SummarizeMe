@@ -11,9 +11,9 @@
 
 ## Tech Stack
 
-- **Frontend**: React or Next.js for the web UI.
-- **Backend**: Node.js (Express) or Python (FastAPI).
-- **Database**: Optional (MongoDB or PostgreSQL).
+- **Frontend**: React Next.js for the web UI.
+- **Backend**: Node.js (Express) Python (FastAPI).
+- **Database**: (MongoDB) (PostgreSQL).
 - **API Integrations**:
   - **OpenAI GPT API**: Used for generating summaries from text.
   - **Google Cloud Text-to-Speech API**: Used for converting text to audio.
