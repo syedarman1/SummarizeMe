@@ -6,6 +6,11 @@
 # IN CHROMEWEBSTORE NOW
 [Chrome Web Store](https://chromewebstore.google.com/detail/summarizeme/hokffkdbohcjjheljojgpdhgfligicme)
 
+![OpenAI ss](https://github.com/user-attachments/assets/f4549871-a798-4b98-8d89-415799568c9c)
+
+![chromeapp ss](https://github.com/user-attachments/assets/6f3aa503-f0be-42cf-9c6f-d4d6dd1b97e3)
+
+
 ## Features
 
 - **Summarize Text**: Allows users to input or select text and summarize it using AI.
