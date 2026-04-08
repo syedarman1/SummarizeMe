@@ -22,13 +22,12 @@ SummarizeMe turns any wall of text into a clean, concise summary and reads it ba
 
 The SummarizeMe Chrome Extension brings the full summarization experience directly into your browser. Highlight text, open the extension, and get a summary in seconds.
 
-[**→ Get it on the Chrome Web Store**](https://chrome.google.com/webstore)
 
 ---
 
 ## Web App
 
-The full web experience at [summarizeme-438906.uk.r.appspot.com](https://summarizeme-438906.uk.r.appspot.com)
+The full web experience at [summarizeme.co]
 
 ---
 
