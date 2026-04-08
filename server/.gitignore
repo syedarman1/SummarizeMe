@@ -1,1 +1,4 @@
 .env
+app.yaml
+config/tts.json
+node_modules/

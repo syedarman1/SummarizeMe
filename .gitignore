@@ -1,1 +1,10 @@
 server/config/tts.json
+server/app.yaml
+server/.env
+node_modules/
+client/node_modules/
+client/build/
+client/.env
+client/.env.*
+*.mp3
+
